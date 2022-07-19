@@ -1,5 +1,6 @@
 "use strict";
 
+const GIPHY_API_KEY = "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym";
 
 //functions get search values from form
 function getSearchText() {
@@ -10,9 +11,11 @@ function getSearchText() {
 async function callGiphyApi() {
   let searchText = getSearchText();
 
-  let giphy = await axios.get('api.giphy.com/v1/gifs/search',
-    {params: {q: searchText}})
-    console.log()
+  let giphy = await axios.get('http://api.giphy.com/v1/gifs/search',
+    {params: {q: searchText, limit: 1, api_key: GIPHY_API_KEY}});
+    console.log(giphy.data);
+    console.log(giphy.data.url);
+    // return giphy.data[0].url;
 }
 //function to update the Dom
 
