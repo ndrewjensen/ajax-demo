@@ -41,5 +41,8 @@ $('#form').on('submit', function (evt) {
   console.log('listening to submit button');
   evt.preventDefault();
   formSubmitHandler(evt);
+})
 
+$('#delete-button').on('click', () => {
+  $('#giphy-container').html(" ");
 })
